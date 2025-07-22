@@ -42,13 +42,14 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" aria-haspopup="true">User guide</a><div class="u-nav-popup"><ul role="menu" class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10" aria-label="User guide menu"><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="SHTrading-User-guide.html">SHTrading User guide</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="WebTrading-User-guide.html">WebTrading User guide</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="SHPro-User-guide.html">SHPro User guide</a>
-</li></ul>
-</div>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="FAQ.html">FAQ</a>
-</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="tien-ich.html">Tạo QR nộp tiền 24/7</a>
-</li></ul>
+            </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="WebTrading-User-guide.html">WebTrading User guide</a>
+            </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="SHPro-User-guide.html">SHPro User guide</a>
+            </li></ul>
+            </div>
+            </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="FAQ.html">FAQ</a>
+            </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="tien-ich.html">Tạo QR nộp tiền 24/7</a>
+            </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="QR-in.html">Tạo QR nhận tiền</a>
+            </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse" id="71a7" role="region" aria-label="Menu panel">
             <div class="u-container-style u-custom-color-5 u-inner-container-layout u-sidenav u-sidenav-1">
@@ -61,6 +62,7 @@
 </div>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="FAQ.html">FAQ</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="tien-ich.html">Tạo QR nộp tiền 24/7</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="QR-in.html">Tạo QR nhận tiền</a>
 </li></ul>
               </div>
             </div>
@@ -99,125 +101,7 @@ borders: top right bottom left !important
         </a>
       </div>
     </section>
-    <section class="u-clearfix u-section-3" id="block-1">
-      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-         <div style="max-width: 500px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 32px 24px;">
-           <h2 style="text-align:center; margin-bottom: 28px; color: #1a237e; font-size: 2rem; font-weight: 700;">Tạo mã QR chuyển khoản</h2>
-           <form id="qrFormPro" autocomplete="off" style="display: flex; flex-direction: column; gap: 18px;">
-             <div>
-               <label for="stkPro" style="font-weight: 500; color: #333;">Số tài khoản nhận tiền</label>
-               <input id="stkPro" name="stkPro" type="text" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tài khoản" required />
-             </div>
-             <div>
-               <label for="bankPro" style="font-weight: 500; color: #333;">Ngân hàng thụ hưởng</label>
-               <input id="bankPro" name="bankPro" list="bankListPro" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Tìm ngân hàng..." required />
-               <datalist id="bankListPro">
-                 <option value="970415 - VietinBank"></option>
-                 <option value="970436 - Vietcombank"></option>
-                 <option value="970418 - BIDV"></option>
-                 <option value="970405 - Agribank"></option>
-                 <option value="970448 - OCB"></option>
-                 <option value="970422 - MBBank"></option>
-                 <option value="970407 - Techcombank"></option>
-                 <option value="970416 - ACB"></option>
-                 <option value="970432 - VPBank"></option>
-                 <option value="970423 - TPBank"></option>
-                 <option value="970403 - Sacombank"></option>
-                 <option value="970437 - HDBank"></option>
-                 <option value="970454 - VietCapitalBank"></option>
-                 <option value="970429 - SCB"></option>
-                 <option value="970441 - VIB"></option>
-                 <option value="970443 - SHB"></option>
-                 <option value="970431 - Eximbank"></option>
-                 <option value="970426 - MSB"></option>
-                 <option value="546034 - CAKE"></option>
-                 <option value="546035 - Ubank"></option>
-                 <option value="963388 - Timo"></option>
-                 <option value="971005 - ViettelMoney"></option>
-                 <option value="971011 - VNPTMoney"></option>
-                 <option value="970400 - SaigonBank"></option>
-                 <option value="970409 - BacABank"></option>
-                 <option value="970412 - PVcomBank"></option>
-                 <option value="970414 - MBV"></option>
-                 <option value="970419 - NCB"></option>
-                 <option value="970424 - ShinhanBank"></option>
-                 <option value="970425 - ABBANK"></option>
-                 <option value="970427 - VietABank"></option>
-                 <option value="970428 - NamABank"></option>
-                 <option value="970430 - PGBank"></option>
-                 <option value="970433 - VietBank"></option>
-                 <option value="970438 - BaoVietBank"></option>
-                 <option value="970440 - SeABank"></option>
-                 <option value="970446 - COOPBANK"></option>
-                 <option value="970449 - LPBank"></option>
-                 <option value="970452 - KienLongBank"></option>
-                 <option value="668888 - KBank"></option>
-                 <option value="970462 - KookminHN"></option>
-                 <option value="970466 - KEBHanaHCM"></option>
-                 <option value="970467 - KEBHanaHN"></option>
-                 <option value="977777 - MAFC"></option>
-                 <option value="533948 - Citibank"></option>
-                 <option value="970463 - KookminHCM"></option>
-                 <option value="999888 - VBSP"></option>
-                 <option value="970457 - Woori"></option>
-                 <option value="970421 - VRB"></option>
-                 <option value="970458 - UnitedOverseas"></option>
-                 <option value="970410 - StandardChartered"></option>
-                 <option value="970439 - PublicBank"></option>
-                 <option value="801011 - Nonghyup"></option>
-                 <option value="970434 - IndovinaBank"></option>
-                 <option value="970456 - IBKHCM"></option>
-                 <option value="970455 - IBKHN"></option>
-                 <option value="458761 - HSBC"></option>
-                 <option value="970442 - HongLeong"></option>
-                 <option value="970408 - GPBank"></option>
-                 <option value="970406 - Vikki"></option>
-                 <option value="796500 - DBSBank"></option>
-                 <option value="422589 - CIMB"></option>
-                 <option value="970444 - CBBank"></option>
-               </datalist>
-             </div>
-             <div>
-               <label for="amountPro" style="font-weight: 500; color: #333;">Số tiền (VNĐ)</label>
-               <input id="amountPro" name="amountPro" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tiền" required />
-             </div>
-             <button type="submit" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Tạo mã QR</button>
-           </form>
-           <div style="margin: 32px 0 0 0; text-align: center;">
-              <iframe id="qrFramePro" name="qrFramePro" width="100%" height="500" frameborder="0" style="background: #fafafa; border: 1px solid #eee; border-radius: 12px; max-width: 500px; margin: 0 auto; display: block;"></iframe>
-            </div>
-         </div>
-         <script>
-           // Số tiền: chỉ nhận số, tự chèn phân cách
-           const amountInputPro = document.getElementById('amountPro');
-           amountInputPro.addEventListener('input', function(e) {
-             let val = this.value.replace(/[^0-9]/g, '');
-             if(val) this.value = Number(val).toLocaleString('vi-VN');
-             else this.value = '';
-           });
-           // Handle Generate QR
-           document.getElementById('qrFormPro').addEventListener('submit', function(e) {
-             e.preventDefault();
-             const stk = document.getElementById('stkPro').value.trim();
-             const bank = document.getElementById('bankPro').value.trim().split(' ')[0];
-             let amountRaw = amountInputPro.value.replace(/[^0-9]/g, '');
-             if (!bank || !stk || !amountRaw) {
-               alert('Vui lòng nhập đủ thông tin!');
-               return;
-             }
-             var url = 'https://zeusato.github.io/qr-payment/qr.html?bank=' + encodeURIComponent(bank)
-               + '&stk=' + encodeURIComponent(stk)
-               + '&amount=' + encodeURIComponent(amountRaw)
-               + '&t=' + Date.now();
-             var qrFrame = document.getElementById('qrFramePro');
-             if(qrFrame.hasAttribute('srcdoc')) qrFrame.removeAttribute('srcdoc');
-             qrFrame.src = url;
-           });
-         </script>
-        </div>
-      </div>
-    </section>
+    
     <section class="u-clearfix u-section-4" id="sec-5018">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">

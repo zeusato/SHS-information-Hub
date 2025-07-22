@@ -44,6 +44,8 @@
 </li></ul>
 </div>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="FAQ.html">FAQ</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="tien-ich.html">Tạo QR nộp tiền 24/7</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-active-custom-color-3 u-button-style u-custom-color-5 u-hover-custom-color-5 u-nav-link" href="QR-in.html">Tạo QR nhận tiền</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse" id="71a7" role="region" aria-label="Menu panel">
@@ -57,6 +59,7 @@
 </div>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="FAQ.html">FAQ</a>
 </li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="tien-ich.html">Tạo QR nộp tiền 24/7</a>
+</li><li role="none" class="u-nav-item"><a role="menuitem" class="u-button-style u-nav-link" href="QR-in.html">Tạo QR nhận tiền</a>
 </li></ul>
               </div>
             </div>
@@ -94,36 +97,55 @@ borders: top right bottom left !important
       <div style="max-width: 500px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 32px 24px;">
         <h2 style="text-align:center; margin-bottom: 28px; color: #1a237e; font-size: 2rem; font-weight: 700;">Tạo QR nộp tiền 24/7</h2>
         <form id="qrForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 18px;">
-          <div style="display: flex; align-items: flex-end; gap: 10px;">
-            <div style="flex: 1; position: relative;">
-              <label for="stk" style="font-weight: 500; color: #333;">Số tài khoản chứng khoán</label>
-              <input id="stk" name="stk" type="text" maxlength="10" pattern="[0-9A-Za-z]{5,10}" value="069C" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" required />
-              <span id="hint-stk" style="display:none; position: absolute; right: 10px; top: 38px; color: #888; font-size: 0.95em;">Nhập tiếp số tài khoản...</span>
-            </div>
-            <div style="min-width: 80px;">
-              <label for="subAcc" style="font-weight: 500; color: #333;">Tiểu khoản</label>
-              <select id="subAcc" name="subAcc" style="width: 100%; padding: 10px 8px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;">
-                <option value="00" selected>00</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="08">08</option>
-                <option value="80">80</option>
-              </select>
-            </div>
-          </div>
+          <table style="width:100%; border-collapse:separate; border-spacing:0; margin-bottom: 0;">
+            <tr>
+              <td style="width:65%; vertical-align:top; padding-right:10px;">
+                <label for="stk" style="font-weight: 500; color: #333;">Số tài khoản chứng khoán</label>
+                <input id="stk" name="stk" type="text" maxlength="10" pattern="[0-9A-Za-z]{5,10}" value="069C" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box;" required tabindex="1" />
+                
+                <div style="margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" id="saveStk" style="margin:0;" tabindex="3">
+                  <label for="saveStk" style="font-size: 1em; color: #333; cursor:pointer;">Lưu tài khoản</label>
+                </div>
+              </td>
+              <td style="width:35%; vertical-align:top;">
+                <label for="subAcc" style="font-weight: 500; color: #333;">Tiểu khoản</label>
+                <select id="subAcc" name="subAcc" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box; line-height: normal;" tabindex="2">
+                  <option value="00" selected>00</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="08">08</option>
+                  <option value="80">80</option>
+                </select>
+              </td>
+            </tr>
+          </table>
           <div>
             <label for="amount" style="font-weight: 500; color: #333;">Số tiền nộp</label>
-            <input id="amount" name="amount" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tiền..." required />
+            <input id="amount" name="amount" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tiền..." required tabindex="4" value="0" />
           </div>
-          <button type="submit" id="generateBtn" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Generate</button>
+          <button type="submit" id="generateBtn" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;" tabindex="5">Generate</button>
         </form>
         <div style="margin: 32px 0 0 0; text-align: center;">
           <iframe id="qrFrame" name="qrFrame" width="100%" height="500" frameborder="0" style="background: #fafafa; border: 1px solid #eee; border-radius: 12px; max-width: 500px; margin: 0 auto; display: block;"></iframe>
         </div>
       </div>
       <script>
+        // Auto fill từ localStorage khi load trang
+        window.addEventListener('DOMContentLoaded', function() {
+          const savedStk = localStorage.getItem('savedStk');
+          const saveStkChecked = localStorage.getItem('saveStkChecked');
+          if(saveStkChecked === 'true') {
+            document.getElementById('saveStk').checked = true;
+            if(savedStk && savedStk.startsWith('069C')) {
+              document.getElementById('stk').value = savedStk;
+            }
+          } else {
+            document.getElementById('saveStk').checked = false;
+          }
+        });
         // Hiện dấu nhắc khi focus vào số tài khoản
         const stkInput = document.getElementById('stk');
         const hintStk = document.getElementById('hint-stk');
@@ -150,6 +172,15 @@ borders: top right bottom left !important
         // Handle Generate QR
         document.getElementById('qrForm').addEventListener('submit', function(e) {
           e.preventDefault();
+          // Lưu trạng thái nếu checkbox được chọn
+          const saveStk = document.getElementById('saveStk').checked;
+          if(saveStk) {
+            localStorage.setItem('savedStk', stkInput.value.trim());
+            localStorage.setItem('saveStkChecked', 'true');
+          } else {
+            localStorage.removeItem('savedStk');
+            localStorage.setItem('saveStkChecked', 'false');
+          }
           // Lấy giá trị các trường
           const stk = stkInput.value.trim();
           const subAcc = document.getElementById('subAcc').value;
