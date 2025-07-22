@@ -94,24 +94,99 @@ borders: top right bottom left !important
   <!-- Phần nội dung tiện ích, để trống -->
   <section class="u-clearfix u-section-2" id="tien-ich-content">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-      <div style="max-width: 500px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 32px 24px;">
-        <h2 style="text-align:center; margin-bottom: 28px; color: #1a237e; font-size: 2rem; font-weight: 700;">Tạo QR nộp tiền 24/7</h2>
-        <form id="qrForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 18px;">
-          <table style="width:100%; border-collapse:separate; border-spacing:0; margin-bottom: 0;">
-            <tr>
-              <td style="width:65%; vertical-align:top; padding-right:10px;">
-                <label for="stk" style="font-weight: 500; color: #333;">Số tài khoản chứng khoán</label>
-                <input id="stk" name="stk" type="text" maxlength="10" pattern="[0-9A-Za-z]{5,10}" value="069C" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box;" required tabindex="1" />
-                
+      <div style="max-width: 600px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 32px 24px;">
+        <!-- Tab control -->
+        <div id="tab-control" style="display: flex; border-bottom: 2px solid #1976d2; margin-bottom: 24px;">
+          <button type="button" class="tab-btn active" data-tab="qr247" style="flex:1; padding: 14px 0; font-size: 1.1rem; font-weight: 600; border:none; background: none; color: #1976d2; border-bottom: 3px solid #1976d2; cursor:pointer; border-radius: 8px 8px 0 0;">QR 24/7</button>
+          <button type="button" class="tab-btn" data-tab="chuyenkhoan" style="flex:1; padding: 14px 0; font-size: 1.1rem; font-weight: 600; border:none; background: none; color: #333; border-bottom: 3px solid transparent; cursor:pointer; border-radius: 8px 8px 0 0;">Chuyển khoản thường</button>
+        </div>
+        <!-- Tab contents -->
+        <div id="tab-contents">
+          <div class="tab-content" id="tab-qr247" style="display:block;">
+            <h2 style="text-align:center; margin-bottom: 28px; color: #1a237e; font-size: 2rem; font-weight: 700;">Tạo QR nộp tiền 24/7</h2>
+            <form id="qrForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 18px;">
+              <table style="width:100%; border-collapse:separate; border-spacing:0; margin-bottom: 0;">
+                <tr>
+                  <td style="width:65%; vertical-align:top; padding-right:10px;">
+                    <label for="stk" style="font-weight: 500; color: #333;">Số tài khoản chứng khoán</label>
+                    <input id="stk" name="stk" type="text" maxlength="10" pattern="[0-9A-Za-z]{5,10}" value="069C" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box;" required tabindex="1" />
+                    <div style="margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                      <input type="checkbox" id="saveStk" style="margin:0;" tabindex="3">
+                      <label for="saveStk" style="font-size: 1em; color: #333; cursor:pointer;">Lưu tài khoản</label>
+                    </div>
+                  </td>
+                  <td style="width:35%; vertical-align:top;">
+                    <label for="subAcc" style="font-weight: 500; color: #333;">Tiểu khoản</label>
+                    <select id="subAcc" name="subAcc" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box; line-height: normal;" tabindex="2">
+                      <option value="00" selected>00</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="08">08</option>
+                      <option value="80">80</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+              <div>
+                <label for="amount" style="font-weight: 500; color: #333;">Số tiền nộp</label>
+                <input id="amount" name="amount" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tiền..." required tabindex="4" value="0" />
+              </div>
+              <button type="submit" id="generateBtn" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;" tabindex="5">Generate</button>
+            </form>
+            <div style="margin: 32px 0 0 0; text-align: center;">
+              <iframe id="qrFrame" name="qrFrame" width="100%" height="500" frameborder="0" style="background: #fafafa; border: 1px solid #eee; border-radius: 12px; max-width: 500px; margin: 0 auto; display: block;"></iframe>
+            </div>
+          </div>
+          <div class="tab-content" id="tab-chuyenkhoan" style="display:none;">
+            <h2 style="text-align:center; margin-bottom: 28px; color: #1a237e; font-size: 2rem; font-weight: 700;">Chuyển khoản thường</h2>
+            <form id="ckForm" autocomplete="off" style="display: flex; flex-direction: column; gap: 18px; max-width: 480px; margin: 0 auto;">
+              <div>
+                <label for="ck-bank" style="font-weight: 500; color: #333;">Chọn ngân hàng nhận tiền</label>
+                <select id="ck-bank" name="ck-bank" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;">
+                  <option value="">-- Chọn ngân hàng --</option>
+                  <option value="vcb">Vietcombank</option>
+                  <option value="bidv">BIDV</option>
+                  <option value="ctg">VietinBank</option>
+                  <option value="tcb">Techcombank</option>
+                  <option value="mb">MB Bank</option>
+                  <option value="acb">ACB</option>
+                  <option value="shb">SHB</option>
+                  <option value="other">Khác...</option>
+                </select>
+              </div>
+              <div>
+                <label for="ck-branch" style="font-weight: 500; color: #333;">Chọn chi nhánh</label>
+                <select id="ck-branch" name="ck-branch" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;">
+                  <option value="">-- Chọn chi nhánh --</option>
+                  <option value="hn">Hà Nội</option>
+                  <option value="hcm">Hồ Chí Minh</option>
+                  <option value="dn">Đà Nẵng</option>
+                  <option value="other">Khác...</option>
+                </select>
+              </div>
+              <div>
+                <label for="ck-stk" style="font-weight: 500; color: #333;">Nhập số tài khoản chứng khoán</label>
+                <input id="ck-stk" name="ck-stk" type="text" maxlength="10" pattern="[0-9A-Za-z]{5,10}" value="069C" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;" required />
+                <span id="ck-hint-stk" style="display:none; color:#1976d2; font-size:0.95em; margin-top:2px;">Nhập tiếp số tài khoản sau "069C"</span>
                 <div style="margin-top: 6px; display: flex; align-items: center; gap: 6px;">
-                  <input type="checkbox" id="saveStk" style="margin:0;" tabindex="3">
-                  <label for="saveStk" style="font-size: 1em; color: #333; cursor:pointer;">Lưu tài khoản</label>
+                  <input type="checkbox" id="ck-saveStk" style="margin:0;">
+                  <label for="ck-saveStk" style="font-size: 1em; color: #333; cursor:pointer;">Lưu số tài khoản</label>
                 </div>
-              </td>
-              <td style="width:35%; vertical-align:top;">
-                <label for="subAcc" style="font-weight: 500; color: #333;">Tiểu khoản</label>
-                <select id="subAcc" name="subAcc" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 42px; box-sizing: border-box; line-height: normal;" tabindex="2">
-                  <option value="00" selected>00</option>
+                <div style="margin-top: 12px;">
+                  <label for="ck-owner" style="font-weight: 500; color: #333;">Nhập tên chủ tài khoản</label>
+                  <input id="ck-owner" name="ck-owner" type="text" maxlength="50" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;" />
+                  <div style="margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                    <input type="checkbox" id="ck-saveOwner" style="margin:0;">
+                    <label for="ck-saveOwner" style="font-size: 1em; color: #333; cursor:pointer;">Lưu tên tài khoản</label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="ck-subAcc" style="font-weight: 500; color: #333;">Chọn tiểu khoản nộp tiền</label>
+                <select id="ck-subAcc" name="ck-subAcc" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;">
+                  <option value="00">00</option>
                   <option value="01">01</option>
                   <option value="02">02</option>
                   <option value="03">03</option>
@@ -119,20 +194,43 @@ borders: top right bottom left !important
                   <option value="08">08</option>
                   <option value="80">80</option>
                 </select>
-              </td>
-            </tr>
-          </table>
-          <div>
-            <label for="amount" style="font-weight: 500; color: #333;">Số tiền nộp</label>
-            <input id="amount" name="amount" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1.1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px;" placeholder="Nhập số tiền..." required tabindex="4" value="0" />
+              </div>
+              <div>
+                <label for="ck-amount" style="font-weight: 500; color: #333;">Nhập số tiền muốn nộp</label>
+                <input id="ck-amount" name="ck-amount" type="text" inputmode="numeric" pattern="[0-9,\.]*" style="width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #bbb; border-radius: 6px; margin-top: 4px; height: 48px; box-sizing: border-box;" placeholder="Nhập số tiền..." value="0" required />
+              </div>
+              <button type="submit" id="ck-generateBtn" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Generate</button>
+            </form>
+            <div id="ck-qr-result" style="margin:32px 0 0 0; text-align:center;"></div>
           </div>
-          <button type="submit" id="generateBtn" style="margin-top: 10px; padding: 12px 0; background: #1976d2; color: #fff; font-size: 1.15rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;" tabindex="5">Generate</button>
-        </form>
-        <div style="margin: 32px 0 0 0; text-align: center;">
-          <iframe id="qrFrame" name="qrFrame" width="100%" height="500" frameborder="0" style="background: #fafafa; border: 1px solid #eee; border-radius: 12px; max-width: 500px; margin: 0 auto; display: block;"></iframe>
         </div>
       </div>
       <script>
+        // Tab control logic: giữ trạng thái tab khi chuyển và khi reload
+        document.addEventListener('DOMContentLoaded', function() {
+          const tabBtns = document.querySelectorAll('.tab-btn');
+          const tabContents = document.querySelectorAll('.tab-content');
+          tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+              tabBtns.forEach(b => { b.classList.remove('active'); b.style.color = '#333'; b.style.borderBottom = '3px solid transparent'; });
+              this.classList.add('active'); this.style.color = '#1976d2'; this.style.borderBottom = '3px solid #1976d2';
+              tabContents.forEach(tc => tc.style.display = 'none');
+              document.getElementById('tab-' + this.dataset.tab).style.display = 'block';
+              sessionStorage.setItem('activeTab', this.dataset.tab);
+            });
+          });
+          // Khi load lại trang, giữ nguyên tab đang chọn
+          const activeTab = sessionStorage.getItem('activeTab');
+          if(activeTab && document.querySelector('.tab-btn[data-tab="' + activeTab + '"]')) {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(tc => tc.style.display = 'none');
+            const btn = document.querySelector('.tab-btn[data-tab="' + activeTab + '"]');
+            btn.classList.add('active');
+            btn.style.color = '#1976d2';
+            btn.style.borderBottom = '3px solid #1976d2';
+            document.getElementById('tab-' + activeTab).style.display = 'block';
+          }
+        });
         // Auto fill từ localStorage khi load trang
         window.addEventListener('DOMContentLoaded', function() {
           const savedStk = localStorage.getItem('savedStk');
@@ -148,9 +246,9 @@ borders: top right bottom left !important
         });
         // Hiện dấu nhắc khi focus vào số tài khoản
         const stkInput = document.getElementById('stk');
-        const hintStk = document.getElementById('hint-stk');
-        stkInput.addEventListener('focus', () => { hintStk.style.display = 'inline'; });
-        stkInput.addEventListener('blur', () => { hintStk.style.display = 'none'; });
+        // const hintStk = document.getElementById('hint-stk'); // Không còn hint-stk
+        // stkInput.addEventListener('focus', () => { hintStk.style.display = 'inline'; });
+        // stkInput.addEventListener('blur', () => { hintStk.style.display = 'none'; });
         // Giới hạn ký tự đầu là 069C, không cho xóa
         stkInput.addEventListener('keydown', function(e) {
           if(this.selectionStart <= 4 && (e.key === 'Backspace' || e.key === 'Delete')) {
@@ -168,7 +266,6 @@ borders: top right bottom left !important
           if(val) this.value = Number(val).toLocaleString('vi-VN');
           else this.value = '';
         });
-
         // Handle Generate QR
         document.getElementById('qrForm').addEventListener('submit', function(e) {
           e.preventDefault();
@@ -196,6 +293,198 @@ borders: top right bottom left !important
           qrFrame.src = url;
         });
       </script>
+      <script>
+        // Dữ liệu ngân hàng, chi nhánh, số TK
+        const bankData = [
+          {
+            bank: 'NH TMCP Sài Gòn - Hà Nội (SHB)',
+            code: '970443',
+            branches: [
+              { name: 'SHB CN Đông Đô', acc: '1001085133' },
+              { name: 'SHB CN Thăng Long,  HN', acc: '1004787027' },
+              { name: 'SHB Hồng Bàng, Hải Phòng', acc: '1004190384' },
+              { name: 'SHB Quảng Ninh', acc: '1002365866' },
+              { name: 'SHB CN Đà Nẵng', acc: '1000035438' },
+              { name: 'SHB CN Đồng Nai', acc: '1002567553' },
+              { name: 'SHB  CN HCM', acc: '1000007368' },
+              { name: 'SHB CN Quảng Ngãi', acc: '1007016902' },
+              { name: 'VCB ,PGD Số 8, CN Hà Nội', acc: '0021000357672' },
+              { name: 'VCB chi nhánh TP HCM', acc: '0071000805827' },
+              { name: 'SHB CN Cần Thơ', acc: '1003390253' },
+            ]
+          },
+          {
+            bank: 'NH TMCP Á Châu (ACB)',
+            code: '970416',
+            branches: [
+              { name: 'ACB CN TP.HCM', acc: '192892219' },
+            ]
+          },
+          {
+            bank: 'NH TMCP Đầu tư và Phát triển Việt Nam (BIDV)',
+            code: '970418',
+            branches: [
+              { name: 'BIDV CN Hà Thành', acc: '1220331416' },
+              { name: 'BIDV CN Đà Nẵng', acc: '5610530542' },
+              { name: 'BIDV CN Nam Kỳ Khởi Nghĩa', acc: '1190167088' },
+            ]
+          },
+          {
+            bank: 'NH TMCP Xuất nhập khẩu Việt Nam (EIB)',
+            code: '970431',
+            branches: [
+              { name: 'EIB Sở Giao Dịch 1, TP HCM', acc: '200014851211697' },
+            ]
+          },
+          {
+            bank: 'NH TMCP Quân đội (MBB)',
+            code: '970422',
+            branches: [
+              { name: 'MB Hoàn Kiếm, Hà Nội', acc: '0801120688688' },
+            ]
+          },
+        ];
+
+        // Sinh động dropdown ngân hàng và chi nhánh cho form chuyển khoản thường
+        function renderBankDropdown() {
+          const bankSelect = document.getElementById('ck-bank');
+          bankSelect.innerHTML = '';
+          bankData.forEach((b, idx) => {
+            const opt = document.createElement('option');
+            opt.value = b.code;
+            opt.textContent = b.bank;
+            if(idx === 0) opt.selected = true;
+            bankSelect.appendChild(opt);
+          });
+        }
+        function renderBranchDropdown(bankCode) {
+          const branchSelect = document.getElementById('ck-branch');
+          branchSelect.innerHTML = '';
+          const bank = bankData.find(b => b.code === bankCode) || bankData[0];
+          bank.branches.forEach((br, idx) => {
+            const opt = document.createElement('option');
+            opt.value = br.acc;
+            opt.textContent = br.name;
+            if(idx === 0) opt.selected = true;
+            branchSelect.appendChild(opt);
+          });
+        }
+        // Khởi tạo dropdown khi DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+          renderBankDropdown();
+          renderBranchDropdown(document.getElementById('ck-bank').value);
+          // Khi đổi ngân hàng, cập nhật lại chi nhánh
+          document.getElementById('ck-bank').addEventListener('change', function() {
+            renderBranchDropdown(this.value);
+          });
+        });
+      </script>
+      <script>
+        // Xử lý độc lập cho tab Chuyển khoản thường
+        function handleCkGenerate(e) {
+          e.preventDefault();
+          // Lưu cache số tài khoản
+          const ckStkInput = document.getElementById('ck-stk');
+          const ckSaveStk = document.getElementById('ck-saveStk');
+          if(ckSaveStk.checked) {
+            localStorage.setItem('ckSavedStk', ckStkInput.value.trim());
+            localStorage.setItem('ckSaveStkChecked', 'true');
+          } else {
+            localStorage.removeItem('ckSavedStk');
+            localStorage.setItem('ckSaveStkChecked', 'false');
+          }
+          // Lưu cache tên chủ tài khoản
+          const ckOwnerInput = document.getElementById('ck-owner');
+          const ckSaveOwner = document.getElementById('ck-saveOwner');
+          if(ckSaveOwner.checked) {
+            localStorage.setItem('ckSavedOwner', ckOwnerInput.value.trim());
+            localStorage.setItem('ckSaveOwnerChecked', 'true');
+          } else {
+            localStorage.removeItem('ckSavedOwner');
+            localStorage.setItem('ckSaveOwnerChecked', 'false');
+          }
+          // Lấy dữ liệu form
+          const bankCode = document.getElementById('ck-bank').value;
+          const accNum = document.getElementById('ck-branch').value;
+          let ownerRaw = ckOwnerInput.value.trim();
+          function removeVietnameseTones(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+          }
+          function toTitleCase(str) {
+            return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+          }
+          let ownerProcessed = toTitleCase(removeVietnameseTones(ownerRaw));
+          const stk = ckStkInput.value.trim();
+          const subAcc = document.getElementById('ck-subAcc').value;
+          const diengiai = `NT TKCK ${ownerProcessed} - ${stk}.${subAcc}`;
+          console.log('diengiai:', diengiai);
+          let amountRaw = document.getElementById('ck-amount').value.replace(/[^0-9]/g, '');
+          // Hiển thị QR
+          let qrDiv = document.getElementById('ck-qr-result');
+          const qrUrl = `https://api.vietqr.io/image/${bankCode}-${accNum}-compact.png?amount=${amountRaw}&addInfo=${encodeURIComponent(diengiai)}`;
+          qrDiv.innerHTML = `<img src="${qrUrl}" alt="QR chuyển khoản" style="max-width:320px; width:100%; border-radius:12px; border:1px solid #eee; background:#fafafa;" />`;
+        }
+        // Gắn sự kiện cho form CK
+        window.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('ckForm').addEventListener('submit', handleCkGenerate);
+          // Auto fill số tài khoản và tên chủ tài khoản nếu đã lưu
+          const ckStkInput = document.getElementById('ck-stk');
+          const ckSaveStk = document.getElementById('ck-saveStk');
+          const ckOwnerInput = document.getElementById('ck-owner');
+          const ckSaveOwner = document.getElementById('ck-saveOwner');
+          // Số tài khoản
+          const ckSavedStk = localStorage.getItem('ckSavedStk');
+          const ckSaveStkChecked = localStorage.getItem('ckSaveStkChecked');
+          if(ckSaveStkChecked === 'true') {
+            ckSaveStk.checked = true;
+            if(ckSavedStk && ckSavedStk.startsWith('069C')) {
+              ckStkInput.value = ckSavedStk;
+            }
+          } else {
+            ckSaveStk.checked = false;
+          }
+          // Tên chủ tài khoản
+          const ckSavedOwner = localStorage.getItem('ckSavedOwner');
+          const ckSaveOwnerChecked = localStorage.getItem('ckSaveOwnerChecked');
+          if(ckSaveOwnerChecked === 'true') {
+            ckSaveOwner.checked = true;
+            if(ckSavedOwner) {
+              ckOwnerInput.value = ckSavedOwner;
+            }
+          } else {
+            ckSaveOwner.checked = false;
+          }
+          // Số tiền: chỉ nhận số, tự chèn phân cách, không nhận số thập phân
+          const ckAmountInput = document.getElementById('ck-amount');
+          ckAmountInput.addEventListener('input', function(e) {
+            let val = this.value.replace(/[^0-9]/g, '');
+            if(val) this.value = Number(val).toLocaleString('vi-VN');
+            else this.value = '';
+          });
+          // Hiện dấu nhắc khi focus vào số tài khoản
+          const ckHintStk = document.getElementById('ck-hint-stk');
+          ckStkInput.addEventListener('focus', () => { ckHintStk.style.display = 'inline'; });
+          ckStkInput.addEventListener('blur', () => { ckHintStk.style.display = 'none'; });
+          ckStkInput.addEventListener('keydown', function(e) {
+            if(this.selectionStart <= 4 && (e.key === 'Backspace' || e.key === 'Delete')) {
+              e.preventDefault();
+            }
+          });
+          ckStkInput.addEventListener('input', function(e) {
+            if(!this.value.startsWith('069C')) this.value = '069C';
+            if(this.value.length > 10) this.value = this.value.slice(0,10);
+          });
+        });
+      </script>
+      <style>
+        .tab-btn.active {
+          color: #1976d2 !important;
+          border-bottom: 3px solid #1976d2 !important;
+        }
+        .tab-btn {
+          transition: color 0.2s, border-bottom 0.2s;
+        }
+      </style>
     </div>
   </section>
   <!-- Phần Get In Touch và footer giữ nguyên -->
