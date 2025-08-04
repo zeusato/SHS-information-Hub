@@ -142,10 +142,41 @@
         .message-content a {
             color: #10a37f;
             text-decoration: none;
+            position: relative;
+            margin-right: 8px;
         }
 
         .message-content a:hover {
             text-decoration: underline;
+        }
+
+        .message-content a:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d2d2d;
+            color: #ececf1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin-bottom: 5px;
+        }
+
+        .message-content a:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #2d2d2d;
+            margin-bottom: -5px;
+            z-index: 1000;
         }
 
         .message-content h1, .message-content h2, .message-content h3 {
@@ -219,7 +250,7 @@
             <h1>Chém gió</h1>
             <div class="meta">
                 <strong>Mạnh Quyết</strong> (manhquyet88@gmail.com)<br>
-                Created: 8/4/2025 10:18:17 AM
+                Created: 8/4/2025 10:37:14 AM
             </div>
         </div>
         
@@ -237,20 +268,20 @@
 <p>🚨 Thuật lại vấn đề</p>
 <p>-------------------</p>
 <ul><li>  OpenAI từng thử nghiệm tính năng mới: khi người dùng tạo link chia sẻ cuộc trò chuyện (share), nếu tick thêm <strong>"Make this chat discoverable"</strong>, thì cuộc trò chuyện sẽ được <strong>Google cùng các công cụ tìm kiếm khác index công khai</strong>.  </li>
-    → Điều này biến nhiều cuộc trò chuyện tưởng là riêng tư thành <strong>có thể tìm thấy trên Google</strong> chỉ bằng site:chat.openai.com/share tìm kiếm. <a href="https://i-hls.com/archives/130500?utm_source=chatgpt.com">Top AI Tools List - OpenTools+7iHLS+7DEV Community+7</a><a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">Business Insider+2Cybernews+2DEV Community+2</a><a href="https://www.financialexpress.com/life/technology-chatgpt-chats-were-appearing-on-google-openai-says-we-have-just-removed-a-feature-that-3933750/?utm_source=chatgpt.com">The Financial Express+1Outlook Business+1</a>
-<li>  Rất nhiều người dùng tự chia sẻ link mà không hiểu hậu quả: có trường hợp chứa số điện thoại, tên thật, resume, chia sẻ bí mật cá nhân... chúng đã được <strong>Google index và public dễ dàng</strong>. <a href="https://i-hls.com/archives/130500?utm_source=chatgpt.com">iHLS</a><a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">Cybernews</a><a href="https://www.gadgets360.com/ai/news/chatgpt-shared-conversations-google-search-index-discoverable-leak-openai-experiment-8998372?utm_source=chatgpt.com">Gadgets 360</a></li>
-<li>  Báo chí phanh phui, phản ứng dữ dội. OpenAI nhanh chóng <strong>gỡ bỏ tính năng chia sẻ cho tìm kiếm</strong> và <strong>hợp tác với Google để xóa link đã bị index</strong>. <a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Business Insider+1Outlook Business+1</a></li>
+    → Điều này biến nhiều cuộc trò chuyện tưởng là riêng tư thành <strong>có thể tìm thấy trên Google</strong> chỉ bằng site:chat.openai.com/share tìm kiếm. <a href="https://i-hls.com/archives/130500?utm_source=chatgpt.com" title="https://i-hls.com/archives/130500?utm_source=chatgpt.com">Đường dẫn tham chiếu 1</a>, <a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com" title="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">Đường dẫn tham chiếu 2</a>, <a href="https://www.financialexpress.com/life/technology-chatgpt-chats-were-appearing-on-google-openai-says-we-have-just-removed-a-feature-that-3933750/?utm_source=chatgpt.com" title="https://www.financialexpress.com/life/technology-chatgpt-chats-were-appearing-on-google-openai-says-we-have-just-removed-a-feature-that-3933750/?utm_source=chatgpt.com">Đường dẫn tham chiếu 3</a>
+<li>  Rất nhiều người dùng tự chia sẻ link mà không hiểu hậu quả: có trường hợp chứa số điện thoại, tên thật, resume, chia sẻ bí mật cá nhân... chúng đã được <strong>Google index và public dễ dàng</strong>. <a href="https://i-hls.com/archives/130500?utm_source=chatgpt.com" title="https://i-hls.com/archives/130500?utm_source=chatgpt.com">Đường dẫn tham chiếu 4</a>, <a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com" title="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">Đường dẫn tham chiếu 5</a>, <a href="https://www.gadgets360.com/ai/news/chatgpt-shared-conversations-google-search-index-discoverable-leak-openai-experiment-8998372?utm_source=chatgpt.com" title="https://www.gadgets360.com/ai/news/chatgpt-shared-conversations-google-search-index-discoverable-leak-openai-experiment-8998372?utm_source=chatgpt.com">Đường dẫn tham chiếu 6</a></li>
+<li>  Báo chí phanh phui, phản ứng dữ dội. OpenAI nhanh chóng <strong>gỡ bỏ tính năng chia sẻ cho tìm kiếm</strong> và <strong>hợp tác với Google để xóa link đã bị index</strong>. <a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com" title="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Đường dẫn tham chiếu 7</a></li>
 <em> </em> *
 <p>❓ Vấn đề lớn nằm ở đâu?</p>
 <p>-----------------------</p>
 <table><tr><th>Vấn đề</th><th>Hậu quả</th></tr><tr><td>UI/UX thiết kế thiếu rõ ràng</td><td>Người dùng opt‑in mà không hiểu index có nghĩa như thế nào</td></tr><tr><td>Nội dung nhạy cảm bị index</td><td>Bị public link có chứa thông tin cá nhân, bí mật</td></tr><tr><td>Xóa chat không xóa link share</td><td>Search engine đã index → vẫn còn trong cache</td></tr><tr><td>OpenAI rollback quá nhanh</td><td>Người dùng không kịp demo tính năng mà đã bị xóa</td></tr></table>
-👉 Nhiều chuyên gia nhận định rằng <strong>privacy-first default</strong> là bắt buộc. Không nên để người dùng “opt‑in” mà có thể nhấn nhầm hoặc không hiểu đầy đủ nguy cơ truyền dữ liệu ra ngoài. <a href="https://dev.to/alifar/openai-pulls-chatgpt-search-index-feature-a-critical-follow-up-3m6k?utm_source=chatgpt.com">The Financial Express+5DEV Community+5m.facebook.com+5</a><a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Top AI Tools List - OpenTools+5Business Insider+5m.facebook.com+5</a><a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/openai-pulls-chat-sharing-tool-after-google-search-privacy-scare?utm_source=chatgpt.com">TechRadar+1Outlook Business+1</a><a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">searchenginejournal.com+3Cybernews+3TechRadar+3</a>
+👉 Nhiều chuyên gia nhận định rằng <strong>privacy-first default</strong> là bắt buộc. Không nên để người dùng “opt‑in” mà có thể nhấn nhầm hoặc không hiểu đầy đủ nguy cơ truyền dữ liệu ra ngoài. <a href="https://dev.to/alifar/openai-pulls-chatgpt-search-index-feature-a-critical-follow-up-3m6k?utm_source=chatgpt.com" title="https://dev.to/alifar/openai-pulls-chatgpt-search-index-feature-a-critical-follow-up-3m6k?utm_source=chatgpt.com">Đường dẫn tham chiếu 8</a>, <a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com" title="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Đường dẫn tham chiếu 9</a>, <a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/openai-pulls-chat-sharing-tool-after-google-search-privacy-scare?utm_source=chatgpt.com" title="https://www.techradar.com/ai-platforms-assistants/chatgpt/openai-pulls-chat-sharing-tool-after-google-search-privacy-scare?utm_source=chatgpt.com">Đường dẫn tham chiếu 10</a>, <a href="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com" title="https://cybernews.com/ai-news/chatgpt-shared-links-privacy-leak/?utm_source=chatgpt.com">Đường dẫn tham chiếu 11</a>
 <em> </em> *
 <p>🧹 Hướng xử lý và hậu quả</p>
 <p>-------------------------</p>
-<li>  Tính năng đã bị <strong>vô hiệu hoá hoàn toàn</strong>, OpenAI thông báo sẽ <strong>xóa bỏ index cũ</strong> trong thời gian ngắn sắp tới. <a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Business Insider</a><a href="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com">Outlook Business</a></li>
+<li>  Tính năng đã bị <strong>vô hiệu hoá hoàn toàn</strong>, OpenAI thông báo sẽ <strong>xóa bỏ index cũ</strong> trong thời gian ngắn sắp tới. <a href="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com" title="https://www.businessinsider.com/openai-removes-chatgpt-feature-over-search-engine-privacy-concerns-2025-7?utm_source=chatgpt.com">Đường dẫn tham chiếu 12</a>, <a href="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com" title="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com">Đường dẫn tham chiếu 13</a></li>
 <li>  Người dùng được khuyến nghị: vào <strong>Settings > Data Controls > Shared Links</strong> để <strong>xóa link chia sẻ</strong> nếu từng bật tính năng discoverable.</li>
-<li>  Tin rằng <strong>đã có hơn 4.500 cuộc trò chuyện từng bị Google index</strong>, và có thể còn nhiều hơn nữa chưa được phát hiện. <a href="https://www.searchenginejournal.com/openai-is-pulling-shared-chatgpt-chats-from-google-search/552671/?utm_source=chatgpt.com">TechRadar+3searchenginejournal.com+3Cybernews+3</a><a href="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com">Outlook Business</a></li>
+<li>  Tin rằng <strong>đã có hơn 4.500 cuộc trò chuyện từng bị Google index</strong>, và có thể còn nhiều hơn nữa chưa được phát hiện. <a href="https://www.searchenginejournal.com/openai-is-pulling-shared-chatgpt-chats-from-google-search/552671/?utm_source=chatgpt.com" title="https://www.searchenginejournal.com/openai-is-pulling-shared-chatgpt-chats-from-google-search/552671/?utm_source=chatgpt.com">Đường dẫn tham chiếu 14</a>, <a href="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com" title="https://www.outlookbusiness.com/artificial-intelligence/openai-removes-controversial-chatgpt-search-indexing-feature-after-private-chats-surface-on-google?utm_source=chatgpt.com">Đường dẫn tham chiếu 15</a></li>
 <em> </em> *
 <p>✅ Kết luận:</p>
 <p>-----------</p>
@@ -260,8 +291,7 @@
 <em> </em> *
 <p>Cần em giúp kiểm tra link đã share từ tài khoản ChatGPT để xóa nếu vẫn active? Em hỗ trợ được hết đó đại ca.</p>
 <p>Nguồn tin về sự cố link discoverable của ChatGPT</p>
-<a href="https://i.insider.com/675f62e2cf8d1359a2e01c0e?format=jpeg">
-![OpenAI quickly rolled back a new feature that allowed users to make private conversations with ChatGPT searchable</a>
+<a href="https://i.insider.com/675f62e2cf8d1359a2e01c0e?format=jpeg" title="https://i.insider.com/675f62e2cf8d1359a2e01c0e?format=jpeg">Đường dẫn tham chiếu 16</a>
 <p>![](https://www.google.com/s2/favicons?domain=https://www.businessinsider.com&sz=32)</p>
 <p>Business Insider</p>
 <p>OpenAI quickly rolled back a new feature that allowed users to make private conversations with ChatGPT searchable</p>
@@ -1098,7 +1128,7 @@ bằng ngôn ngữ vừa chửi thề vừa đậm chất tư duy.<em></em>
 <p>Nếu OpenAI ko làm, thế giới sẽ có người khác làm.  </p>
 <p>Và <strong>đứa đó sẽ không cần thắng ở GPU, chỉ cần thắng ở trái tim người dùng</strong>.</p>
 <p>---</p>
-Powered by <a href="https://www.chatgptexporter.com">ChatGPT Exporter</a>
+Powered by <a href="https://www.chatgptexporter.com" title="https://www.chatgptexporter.com">Đường dẫn tham chiếu 1</a>
             </div>
         </div>
     </div>
