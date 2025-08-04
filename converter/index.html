@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Converter - Redirect</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #10a37f;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #10a37f 0%, #1a7f64 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 163, 127, 0.3);
+        }
+        
+        .files {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .files h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .file-item {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border-radius: 6px;
+            border-left: 3px solid #10a37f;
+        }
+        
+        .file-item strong {
+            color: #10a37f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🤖</div>
+        <h1>ChatGPT Converter</h1>
+        <p>Tool chuyển đổi file Markdown sang HTML với giao diện ChatGPT</p>
+        
+        <a href="converter.html" class="btn">🚀 Mở Converter</a>
+        
+        <div class="files">
+            <h3>📁 Files có sẵn:</h3>
+            <div class="file-item">
+                <strong>converter.html</strong> - Giao diện chính
+            </div>
+            <div class="file-item">
+                <strong>ChatGPT.md</strong> - File markdown mẫu
+            </div>
+            <div class="file-item">
+                <strong>demo.md</strong> - File demo để test
+            </div>
+            <div class="file-item">
+                <strong>README.md</strong> - Hướng dẫn sử dụng
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto redirect sau 3 giây
+        setTimeout(() => {
+            window.location.href = 'converter.html';
+        }, 3000);
+    </script>
+</body>
+</html> 
