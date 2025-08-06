@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đang mở SHTrading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      text-align: center;
+      padding-top: 20%;
+      font-family: sans-serif;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Đang chuyển sang trình duyệt ngoài...</h2>
+  <p>Nếu không thấy gì xảy ra, hãy bấm nút bên dưới 👇</p>
+
+  <button onclick="openInBrowser()">Mở SHTrading</button>
+
+  <script>
+    const deepLink = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
+
+    function openInBrowser() {
+      window.open(deepLink, '_blank');
+    }
+
+    // Thử auto mở luôn nếu không bị chặn
+    setTimeout(() => {
+      openInBrowser();
+    }, 500);
+  </script>
+</body>
+</html>
