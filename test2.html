@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đang mở SHTrading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      text-align: center;
+      padding-top: 20%;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h2>Đang chuyển sang trình duyệt...</h2>
+  <p>Nếu không thấy gì xảy ra, vui lòng thử lại.</p>
+
+  <script>
+    // Trick để mở deeplink qua trình duyệt ngoài
+    const deepLink = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
+
+    // Delay nhẹ để tránh bị block ngay lập tức
+    setTimeout(() => {
+      // Mở deeplink trong trình duyệt mặc định
+      window.open(deepLink, '_blank');
+    }, 500);
+  </script>
+</body>
+</html>
