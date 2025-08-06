@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Đang mở ứng dụng...</title>
-  <script>
-    // Delay nhỏ để WebView load xong
-    setTimeout(() => {
-      window.location.href = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
-    }, 300);
-
-    // Fallback nếu không mở được (tuỳ chọn)
-    setTimeout(() => {
-      // Có thể đưa tới trang tải app hoặc thông báo gì đó
-      window.location.href = "https://shtrading.vn";
-    }, 3000);
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mở ứng dụng SHTrading</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
-      margin-top: 20%;
+      padding-top: 20%;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>🔄 Đang mở ứng dụng SHTrading...</h2>
-  <p>Nếu không thấy gì xảy ra, vui lòng kiểm tra lại cài đặt ứng dụng.</p>
+  <h2>⚡ Nhấn nút bên dưới để mở ứng dụng SHTrading</h2>
+  <button onclick="openApp()">Mở ứng dụng</button>
+
+  <script>
+    function openApp() {
+      window.location.href = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
+    }
+  </script>
 </body>
 </html>
