@@ -2,16 +2,24 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Đang mở ứng dụng...</title>
+  <title>Đang mở SHTrading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-    // Delay nhẹ để tránh bị OS xử lý vội
-    setTimeout(() => {
-      window.location.href = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
-    }, 200);
+    // Đảm bảo chrome hiểu đây là hành vi người dùng
+    window.onload = () => {
+      const a = document.createElement('a');
+      a.href = "https://shtrading.onelink.me/4ox6/y4yk4heu?remNo=MG197";
+      a.style.display = 'none';
+      a.rel = 'noreferrer noopener';
+      document.body.appendChild(a);
+
+      setTimeout(() => {
+        a.click(); // Giả lập click vào deeplink
+      }, 500); // Delay vừa đủ để tránh browser chặn
+    };
   </script>
 </head>
 <body>
-  <p style="text-align:center; margin-top:30vh;">Đang chuyển hướng đến SHTrading...</p>
+  <p style="text-align:center; margin-top:30vh;">Đang chuyển đến ứng dụng SHTrading...</p>
 </body>
 </html>
